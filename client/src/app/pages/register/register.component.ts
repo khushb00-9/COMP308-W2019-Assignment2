@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
     this.user = new User();
   }
 
-  private onRegisterSubmit(): void {
+  onRegisterSubmit(): void {
     // register the user
     this.authService.registerUser(this.user).subscribe(data => {
       if (data.success) {
