@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ContactListService } from "src/app/services/contact-list.service";
-import { FlashMessagesService } from "angular2-flash-messages";
 import { Router, ActivatedRoute } from "@angular/router";
+import { FlashMessagesService } from "angular2-flash-messages";
 
 import { Contact } from "src/app/models/contact";
 
@@ -15,16 +15,17 @@ export class ContactDetailsComponent implements OnInit {
   contact: Contact;
 
   constructor(
-    private activatedRoute: ActivatedRoute,
-    private flashMessage: FlashMessagesService,
     private contactListService: ContactListService,
-    private router: Router
+    private flashMessage: FlashMessagesService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
     this.title = this.activatedRoute.snapshot.data.title;
     this.contact = new Contact();
 
+    // fills in the contact._id property from the url
     this.activatedRoute.params.subscribe(params => {
       this.contact._id = params.id;
     });
@@ -34,13 +35,13 @@ export class ContactDetailsComponent implements OnInit {
     }
   }
 
-  private getContact(contact: Contact): void {
+  getContact(contact: Contact): void {
     this.contactListService.getContact(contact).subscribe(data => {
       this.contact = data.contact;
     });
   }
 
-  onDetailsPageSubmit(): void {
+  onContactDetailsSubmit(): void {
     switch (this.title) {
       case "Add Contact":
         this.contactListService.addContact(this.contact).subscribe(data => {
@@ -59,7 +60,6 @@ export class ContactDetailsComponent implements OnInit {
           }
         });
         break;
-
       case "Edit Contact":
         this.contactListService.editContact(this.contact).subscribe(data => {
           if (data.success) {

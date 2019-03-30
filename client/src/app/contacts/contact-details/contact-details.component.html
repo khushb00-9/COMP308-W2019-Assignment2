@@ -1,11 +1,10 @@
-<!-- Content for the Details Page -->
+<!-- Content for the Edit Page -->
 <div class="container">
   <div class="row">
     <div class="col-md-offset-3 col-md-6">
-      <br /><br />
       <h1>{{ title }}</h1>
-      <br />
-      <form class="form" (submit)="onDetailsPageSubmit()">
+
+      <form class="form" (submit)="onContactDetailsSubmit()">
         <div class="form-group">
           <label for="FirstNameTextField">First Name</label>
           <input
@@ -47,15 +46,12 @@
             required
           />
         </div>
-        <br />
+
         <button type="submit" class="btn btn-primary">
-          <i class="fas fa-edit"></i>
-          {{ title }}
+          <i class="fas fa-edit"></i> {{ title }}
         </button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a routerLink="/contact/contact-list" class="btn btn-warning">
-          &nbsp;&nbsp;<i class="fas fa-undo"></i>
-          &nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a
+          <i class="fas fa-undo"></i> Cancel</a
         >
       </form>
     </div>
