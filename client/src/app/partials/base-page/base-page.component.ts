@@ -1,3 +1,8 @@
+//File Name: base-page.component.ts
+//Name: Khushboo Sakervala
+//Student ID: 300984318
+//Date: March 28, 2019
+
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 

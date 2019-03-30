@@ -1,3 +1,8 @@
+//File Name: auth.guard.ts
+//Name: Khushboo Sakervala
+//Student ID: 300984318
+//Date: March 28, 2019
+
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, Router } from "@angular/router";
 import { CanActivate } from "@angular/router/src/utils/preactivation";

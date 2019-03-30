@@ -1,3 +1,8 @@
+//File Name: contact-list.component.ts
+//Name: Khushboo Sakervala
+//Student ID: 300984318
+//Date: March 28, 2019
+
 import { Component, OnInit } from "@angular/core";
 import { ContactListService } from "src/app/services/contact-list.service";
 import { Router } from "@angular/router";
