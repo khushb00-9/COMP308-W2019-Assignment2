@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+
 import { FlashMessagesService } from "angular2-flash-messages";
 import { AuthService } from "src/app/services/auth.service";
 import { Router } from "@angular/router";
@@ -21,9 +22,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.user = new User();
+    this.user = JSON.parse(localStorage.getItem("user"));
   }
 
-  onLogoutClick(): void {
+  onLogoutClick(): boolean {
     this.authService.logout().subscribe(data => {
       this.flashMessage.show(data.msg, {
         cssClass: "alert-warning",
@@ -31,10 +33,11 @@ export class HeaderComponent implements OnInit {
       });
       this.router.navigate(["/login"]);
     });
+    return false;
   }
 
   isLoggedIn(): boolean {
-    const result = this.authService.loggedIn();
+    let result = this.authService.LoggedIn();
     if (result) {
       this.user = JSON.parse(localStorage.getItem("user"));
     }

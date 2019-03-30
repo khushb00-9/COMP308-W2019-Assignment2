@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" routerLink="/">
+    <img src="../assets/images/logo.png" width="80" height="50" alt="" />
     Mean Portfolio
   </a>
   <button
@@ -45,6 +46,7 @@
           ><i class="fa fa-lg fa-phone"></i> &nbsp;Contact&nbsp;&nbsp;</a
         >
       </li>
+
       <li
         *ngIf="isLoggedIn()"
         class="navbar-text text-success ml-5 mr-5 d-none d-lg-inline"
@@ -53,13 +55,13 @@
       </li>
 
       <li *ngIf="isLoggedIn()" class="nav-item">
-        <a (click)="onLogoutClick()" routerLink="/logout" class="nav-link">
+        <a (click)="onLogoutClick()" routerLink="logout" class="nav-link">
           <i class="fas fa-lg fa-sign-out-alt"></i> Logout</a
         >
       </li>
 
       <li *ngIf="!isLoggedIn()" class="nav-item">
-        <a routerLink="/login" class="nav-link">
+        <a routerLink="login" class="nav-link">
           <i class="fas fa-lg fa-sign-in-alt"></i> Login</a
         >
       </li>

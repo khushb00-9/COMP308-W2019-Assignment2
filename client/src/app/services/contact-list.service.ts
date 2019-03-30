@@ -12,7 +12,8 @@ export class ContactListService {
   private user: User;
   private authToken: any = null;
 
-  private endpoint = "https://comp308-w2019-mean-portfolio.herokuapp.com/api/";
+  private endpoint =
+    "https://comp308-w2019-mean-portfolio.herokuapp.com/api/contact-list/";
 
   //private endpoint = 'http://localhost:3000/api/contact-list/';
 
@@ -31,19 +32,19 @@ export class ContactListService {
 
   public getList(): Observable<any> {
     this.loadToken();
-    return this.http.get<any>(this.endpoint, this.httpOptions);
-  }
-
-  public getContact(contact: Contact): Observable<any> {
-    this.loadToken();
-    return this.http.get<any>(
-      this.endpoint + "edit/" + contact._id,
-      this.httpOptions
+    this.httpOptions.headers = this.httpOptions.headers.set(
+      "Authorization",
+      this.authToken
     );
+    return this.http.get<any>(this.endpoint, this.httpOptions);
   }
 
   public addContact(contact: Contact): Observable<any> {
     this.loadToken();
+    this.httpOptions.headers = this.httpOptions.headers.set(
+      "Authorization",
+      this.authToken
+    );
     return this.http.post<any>(
       this.endpoint + "add",
       contact,
@@ -51,8 +52,24 @@ export class ContactListService {
     );
   }
 
+  public getContact(contact: Contact): Observable<any> {
+    this.loadToken();
+    this.httpOptions.headers = this.httpOptions.headers.set(
+      "Authorization",
+      this.authToken
+    );
+    return this.http.get<any>(
+      this.endpoint + "edit/" + contact._id,
+      this.httpOptions
+    );
+  }
+
   public editContact(contact: Contact): Observable<any> {
     this.loadToken();
+    this.httpOptions.headers = this.httpOptions.headers.set(
+      "Authorization",
+      this.authToken
+    );
     return this.http.post<any>(
       this.endpoint + "edit/" + contact._id,
       contact,
@@ -62,18 +79,18 @@ export class ContactListService {
 
   public deleteContact(contact: Contact): Observable<any> {
     this.loadToken();
+    this.httpOptions.headers = this.httpOptions.headers.set(
+      "Authorization",
+      this.authToken
+    );
     return this.http.get<any>(
       this.endpoint + "delete/" + contact._id,
       this.httpOptions
     );
   }
 
-  private loadToken() {
+  public loadToken() {
     const token = localStorage.getItem("id_token");
     this.authToken = token;
-    this.httpOptions.headers = this.httpOptions.headers.set(
-      "Authorization",
-      this.authToken
-    );
   }
 }

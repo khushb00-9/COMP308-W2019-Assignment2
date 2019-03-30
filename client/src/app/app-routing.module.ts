@@ -1,8 +1,8 @@
-// Modules
+// modules
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-// Components
+// components
 import { HomeComponent } from "./pages/home/home.component";
 import { AboutComponent } from "./pages/about/about.component";
 import { ProjectsComponent } from "./pages/projects/projects.component";
@@ -52,7 +52,7 @@ const routes: Routes = [
   {
     path: "contact/contact-list/delete/:id",
     component: ContactDeleteComponent,
-    data: { title: "Add Contact" },
+    data: { title: "Delete Contact" },
     canActivate: [AuthGuard]
   },
 
@@ -61,7 +61,7 @@ const routes: Routes = [
     component: RegisterComponent,
     data: { title: "Register" }
   },
-  { path: "login", component: LoginComponent, data: { title: "Register" } },
+  { path: "login", component: LoginComponent, data: { title: "Login" } },
   { path: "logout", redirectTo: "/login", pathMatch: "full" },
 
   { path: "", redirectTo: "/home", pathMatch: "full" },

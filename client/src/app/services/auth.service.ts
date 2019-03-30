@@ -4,15 +4,17 @@ import { Observable } from "rxjs";
 import { JwtHelperService } from "@auth0/angular-jwt";
 
 import { User } from "../models/user";
+
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
-  user: User;
+  public user: User;
   private authToken: any;
 
-  private endpoint = "https://comp308-w2019-mean-portfolio.herokuapp.com/api/";
-  //private endpoint = "http://localhost:3000/api/";
+  private endpoint = "https://comp308-w2019-mean-portfolio.herokuapp.com//api/";
+
+  //private endpoint = 'http://localhost:3000/api/';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -39,7 +41,7 @@ export class AuthService {
     return this.http.post<any>(this.endpoint + "login", user, this.httpOptions);
   }
 
-  public storeUserData(token: any, user: User): void {
+  public storeUserData(token: any, user: User) {
     localStorage.setItem("id_token", "Bearer " + token);
     localStorage.setItem("user", JSON.stringify(user));
     this.authToken = token;
@@ -54,7 +56,7 @@ export class AuthService {
     return this.http.get<any>(this.endpoint + "logout", this.httpOptions);
   }
 
-  public loggedIn(): boolean {
+  public LoggedIn(): boolean {
     return !this.jwtService.isTokenExpired(this.authToken);
   }
 }
