@@ -23,6 +23,10 @@ import {
   FlashMessagesService
 } from "angular2-flash-messages";
 import { ContactListComponent } from "./contacts/contact-list/contact-list.component";
+import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
+import { ContactDeleteComponent } from './contacts/contact-delete/contact-delete.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,11 @@ import { ContactListComponent } from "./contacts/contact-list/contact-list.compo
     ServicesComponent,
     ContactComponent,
     PageNotFoundComponent,
-    ContactListComponent
+    ContactListComponent,
+    RegisterComponent,
+    LoginComponent,
+    ContactDetailsComponent,
+    ContactDeleteComponent
   ],
   imports: [
     BrowserModule,
