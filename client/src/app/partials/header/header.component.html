@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" routerLink="/">
-    <img src="Assets/images/logo.png" width="80" height="50" alt="" />
     Mean Portfolio
   </a>
   <button
@@ -20,8 +19,7 @@
       <li class="nav-item active">
         <a class="nav-link" routerLink="/"
           ><i class="fa fa-lg fa-home"></i> &nbsp;Home&nbsp;&nbsp;
-          <span class="sr-only">(current)</span></a
-        >
+        </a>
       </li>
 
       <li class="nav-item">
@@ -48,19 +46,20 @@
         >
       </li>
 
-      <!--
-      <li class="navbar-text">
-        <i class="fas fa-lg fa-user"></i> Welcome, <%= displayName %>
+      <li
+        *ngIf="isLoggedIn()"
+        class="navbar-text text-success ml-5 mr-5 d-none d-lg-inline"
+      >
+        <i class="fas fa-lg fa-user"></i> Welcome, {{ user.displayName }}
       </li>
-    -->
 
-      <li class="nav-item">
-        <a routerLink="/logout" class="nav-link">
+      <li *ngIf="isLoggedIn()" class="nav-item">
+        <a (click)="onLogoutClick()" routerLink="/logout" class="nav-link">
           <i class="fas fa-lg fa-sign-out-alt"></i> Logout</a
         >
       </li>
 
-      <li class="nav-item">
+      <li *ngIf="!isLoggedIn()" class="nav-item">
         <a routerLink="/login" class="nav-link">
           <i class="fas fa-lg fa-sign-in-alt"></i> Login</a
         >
