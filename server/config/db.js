@@ -8,5 +8,7 @@ module.exports = {
 
   //URI : "mongodb://localhost/demo"
   URI:
-    "mongodb://mean300984318:Mean12345@ds054999.mlab.com:54999/assignment2-contacts"
+    "mongodb://mean300984318:Mean12345@ds054999.mlab.com:54999/assignment2-contacts",
+
+  secret: "SomeSecret"
 };

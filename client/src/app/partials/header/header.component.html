@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/">
+    <img src="Assets/images/logo.png" width="80" height="50" alt="" />
+    Mean Portfolio
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/"
+          ><i class="fa fa-lg fa-home"></i> &nbsp;Home&nbsp;&nbsp;
+          <span class="sr-only">(current)</span></a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about"
+          ><i class="fa fa-lg fa-info"></i>&nbsp; About Me&nbsp;&nbsp;</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/projects"
+          ><i class="fa fa-lg fa-briefcase"></i>&nbsp; Projects&nbsp;&nbsp;</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/services"
+          ><i class="fa fa-server"></i> &nbsp;Services&nbsp;&nbsp;</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact"
+          ><i class="fa fa-lg fa-phone"></i> &nbsp;Contact&nbsp;&nbsp;</a
+        >
+      </li>
+
+      <!--
+      <li class="navbar-text">
+        <i class="fas fa-lg fa-user"></i> Welcome, <%= displayName %>
+      </li>
+    -->
+
+      <li class="nav-item">
+        <a routerLink="/logout" class="nav-link">
+          <i class="fas fa-lg fa-sign-out-alt"></i> Logout</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a routerLink="/login" class="nav-link">
+          <i class="fas fa-lg fa-sign-in-alt"></i> Login</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
